@@ -1,13 +1,12 @@
 class Item
-  
   def initialize(publish_date, archived)
     @id = Random.rand(1..1000)
-    @genre
-    @author
-    @source
-    @label
-    @publish_date
-    @archived
+    # @genre
+    # @author
+    # @source
+    # @label
+    @publish_date = publish_date
+    @archived = archived
   end
 
   def add_genre(genre)
@@ -32,6 +31,6 @@ class Item
   end
 
   def move_to_archive()
-    if can_be_archived? @archived = true
+    @archived = true if can_be_archived?
   end
 end
