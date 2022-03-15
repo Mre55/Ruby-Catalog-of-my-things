@@ -1,8 +1,14 @@
+require './data_storage'
+require './classes/game'
+
 class App
-  attr_accessor :books
+  attr_accessor :books, :games
+
+  include DataStorage
 
   def initialize
     @books = books
+    @games = read_games
   end
 
   def display_list
@@ -26,13 +32,47 @@ class App
     p 'No book in the shelf to show'
   end
 
+  def display_games
+    games.each do |game|
+      puts "Publish Date:#{game.publish_date}, Multiplayer: #{game.multiplayer}, Last Played At: #{game.last_played_at}"
+    end
+  end
+
+  def display_authors
+    authors.each do |author|
+      puts "#{author.first_name} #{author.last_name}"
+    end
+  end
+
+  def create_game
+    print 'Publish Date: '
+    publish_date = gets.chomp
+    print 'Multiplayer?: '
+    multiplayer = gets.chomp
+    print 'Last Played At: '
+    last_played_at = gets.chomp
+
+    games.push(Game.new(publish_date, "false", multiplayer, last_played_at))
+    puts 'Game created successfully.'
+  end
+
   def switch_options(option)
     case option
     when 1
       display_books
+    when 4
+      display_games
+    when 7
+      display_authors
+    when 12
+      create_game
     else
       puts 'Not an option'
     end
+  end
+
+  def save_data()
+    save_games(@games)
   end
 
   def switch_case
@@ -43,5 +83,6 @@ class App
 
       switch_options(option)
     end
+    save_data
   end
 end
