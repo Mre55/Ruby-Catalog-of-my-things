@@ -31,11 +31,8 @@ class Item
   end
 
   private
+
   def can_be_archived?
-    if Date.parse(@publish_date) < Date.parse("2012-01-1")
-      return true;
-    else
-      return false
-    end
+    Date.parse(@publish_date) < Date.parse('2012-01-1')
   end
 end

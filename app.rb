@@ -52,7 +52,7 @@ class App
     print 'Last Played At: '
     last_played_at = gets.chomp
 
-    games.push(Game.new(publish_date, "false", multiplayer, last_played_at))
+    games.push(Game.new(publish_date, 'false', multiplayer, last_played_at))
     puts 'Game created successfully.'
   end
 
