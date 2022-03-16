@@ -1,4 +1,5 @@
 require './classes/game'
+require './classes/author'
 require './classes/book'
 require 'json'
 
@@ -42,5 +43,16 @@ module DataStorage
                   last_played_at: game.last_played_at })
     end
     File.write('./json_data/games-data.json', JSON.generate(data))
+  end
+
+  def read_authors
+    file = './json_data/authors-data.json'
+    data = []
+    if File.exist?(file) && File.read(file) != ''
+      JSON.parse(File.read(file)).each do |element|
+        data.push(Author.new(element['first_name'], element['last_name']))
+      end
+    end
+    data
   end
 end
