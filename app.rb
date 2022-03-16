@@ -2,12 +2,13 @@ require './data_storage'
 require './classes/game'
 
 class App
-  attr_accessor :books, :games, :authors
+  attr_accessor :books, :games, :authors, :labels
 
   include DataStorage
 
   def initialize
     @books = read_books
+    @labels = read_labels
     @games = read_games
     @authors = read_authors
   end
@@ -32,6 +33,12 @@ class App
   def display_books()
     books.each do |book|
       puts "Publisher: #{book.publisher}, Cover state: #{book.cover_state}"
+    end
+  end
+
+  def display_labels
+    labels.each do |label|
+      puts "Title: #{label.title}, Color: #{label.color}"
     end
   end
 
@@ -77,6 +84,8 @@ class App
       display_books
     when 4
       display_games
+    when 6
+      display_labels
     when 7
       display_authors
     when 9
