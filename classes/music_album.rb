@@ -3,8 +3,8 @@ class MusicAlbum < Item
   attr_accessor :on_spotify, :archived
   attr_reader :publish_date
 
-  def initialize(publish_date, archived, on_spotify)
-    super(publish_date, archived)
+  def initialize(*args, on_spotify)
+    super(*args)
     @on_spotify = on_spotify
   end
 
