@@ -1,3 +1,4 @@
+CREATE DATABASE catalog;
 
 CREATE TABLE author (
   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -20,4 +21,21 @@ CREATE TABLE game (
   multiplayer BOOLEAN NOT NULL,
   last_played_at DATE NOT NULL,
   CONSTRAINT fk_item FOREIGN KEY(id) REFERENCES item(id)
+);
+
+CREATE TABLE books (
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  genre_id FOREIGN KEY(id) REFERENCES genre(id),
+  author_id FOREIGN KEY(id) REFERENCES author(id),
+  label_id FOREIGN KEY(id) REFERENCES label(id),
+  publish_date DATE NOT NULL,
+  archived BOOLEAN NOT NULL,
+  publisher VARCHAR(100) NOT NULL,
+  cover_state VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE label (
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  title VARCHAR(100) NOT NULL,
+  color VARCHAR(100) NOT NULL
 );
