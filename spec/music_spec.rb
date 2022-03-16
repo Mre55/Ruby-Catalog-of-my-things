@@ -17,5 +17,4 @@ describe MusicAlbum do
       expect(@musicalbumtwo).to be_an_instance_of MusicAlbum
     end
   end
-  
 end
