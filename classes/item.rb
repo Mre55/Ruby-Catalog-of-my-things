@@ -34,6 +34,9 @@ class Item
   private
 
   def can_be_archived?
-    Date.parse(@publish_date) < Date.parse('2012-01-1')
+    today = Date.today
+    is_years_10_ago = Date.new(today.year - 10, today.month, today.day)
+
+    @publish_date < is_years_10_ago
   end
 end

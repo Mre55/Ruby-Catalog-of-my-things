@@ -7,7 +7,7 @@ class App
   include DataStorage
 
   def initialize
-    @books = books
+    @books = read_books
     @games = read_games
     @authors = read_authors
   end
@@ -29,8 +29,10 @@ class App
     0 - Exit'
   end
 
-  def display_books
-    p 'No book in the shelf to show'
+  def display_books()
+    books.each do |book|
+      puts "Publisher: #{book.publisher}, Cover state: #{book.cover_state}"
+    end
   end
 
   def display_games
@@ -43,6 +45,18 @@ class App
     authors.each do |author|
       puts "#{author.first_name} #{author.last_name}"
     end
+  end
+
+  def create_book()
+    print 'Publish Date: '
+    publish_date = gets.chomp
+    print 'Publisher: '
+    publisher = gets.chomp
+    print 'Cover state: '
+    cover_state = gets.chomp
+
+    books.push(Book.new(publish_date, 'good', publisher, cover_state))
+    puts 'Book created successfully.'
   end
 
   def create_game
@@ -65,6 +79,8 @@ class App
       display_games
     when 7
       display_authors
+    when 9
+      create_book
     when 12
       create_game
     else
@@ -73,6 +89,7 @@ class App
   end
 
   def save_data()
+    save_books(@books)
     save_games(@games)
   end
 
