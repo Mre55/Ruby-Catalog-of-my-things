@@ -1,0 +1,23 @@
+
+CREATE TABLE author (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  first_name VARCHAR(250) NOT NULL,
+  last_name VARCHAR(250) NOT NULL
+);
+
+CREATE TABLE item (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  publish_date DATE NOT NULL,
+  archived BOOLEAN NOT NULL,
+  author_id INT NOT NULL,
+  CONSTRAINT fk_author FOREIGN KEY(author_id) REFERENCES author(id)
+);
+
+CREATE TABLE game (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  publish_date DATE NOT NULL,
+  archived BOOLEAN NOT NULL,
+  multiplayer BOOLEAN NOT NULL,
+  last_played_at DATE NOT NULL,
+  CONSTRAINT fk_item FOREIGN KEY(id) REFERENCES item(id)
+);
