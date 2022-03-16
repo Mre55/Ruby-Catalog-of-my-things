@@ -1,6 +1,7 @@
 require './classes/game'
 require './classes/author'
 require './classes/book'
+require './classes/label'
 require 'json'
 
 module DataStorage
@@ -22,6 +23,17 @@ module DataStorage
       data.push({ id: book.id, publisher: book.publisher, cover_state: book.cover_state })
     end
     File.write('./json_data/book-data.json', JSON.generate(data))
+  end
+
+  def read_labels
+    file = './json_data/labels-data.json'
+    data = []
+    if File.exist?(file) && File.read(file) != ''
+      JSON.parse(File.read(file)).each do |element|
+        data.push(Label.new(element['title'], element['color']))
+      end
+    end
+    data
   end
 
   def read_games
