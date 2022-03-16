@@ -2,13 +2,14 @@ require './data_storage'
 require './classes/game'
 
 class App
-  attr_accessor :books, :games
+  attr_accessor :books, :games, :authors
 
   include DataStorage
 
   def initialize
     @books = books
     @games = read_games
+    @authors = read_authors
   end
 
   def display_list
