@@ -6,6 +6,11 @@
 > In this project we have practiced Object Oriented Programming by adding classes and using OOP principles, Describe the SOLID principles of OOP, Insert and query data in SQL, Create a UML class diagram, Store data in files, Build interactive console apps, and Recognize the value of making equal contributions to group projects to produce the best outcome.
 
 
+| Starting | Options|
+|-----------------|---------------|
+| ![Starting](./img1.jpg) | ![Options](./img2.jpg) |
+
+
 ## Built With
 
 - Ruby
@@ -21,6 +26,10 @@ To get a local copy up and running follow these simple example steps.
 - After download, extract the zip file and you have the project on your machine.
 - Run `rubu main.rb` to run the application.
 
+## Video Demo
+
+[Link](https://drive.google.com/file/d/1EeipPYYXPgkOnhBcyxl0coZlvj43730h/view?usp=sharing)
+
 ## Authors
 
 👤 **Kerolous Samy**
@@ -32,6 +41,9 @@ To get a local copy up and running follow these simple example steps.
 👤 **Luis Abarca**
 
 - GitHub: [@TheLuisAbarca](https://github.com/TheLuisAbarca)
+- Twitter: [@TheLuisAbarca](https://twitter.com/TheLuisAbarca)
+- LinkedIn: [Luís Anghelo Abarca Villacís](https://www.linkedin.com/in/techadvisor-luis-abarca/)
+
 
 👤 **Mihreteab Misganaw Aride**
 
