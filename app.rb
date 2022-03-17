@@ -99,7 +99,7 @@ class App
     publish_date = gets.chomp
     print 'On Spotify? [T or F]: '
     on_spotify = gets.chomp
-    
+
     music_albums.push(MusicAlbum.new(publish_date, true, name, on_spotify))
     puts 'Music album created successfully.'
   end

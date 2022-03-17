@@ -13,7 +13,7 @@ module DataStorage
     if File.exist?(file) && File.read(file) != ''
       JSON.parse(File.read(file)).each do |element|
         data.push(MusicAlbum.new(element['publish_date'], element['archived'], element['name'], element['on_spotify'],
-                           id: element['id'].to_i))
+                                 id: element['id'].to_i))
       end
     end
     data
@@ -87,8 +87,8 @@ module DataStorage
   def save_music_albums(music_albums)
     data = []
     music_albums.each do |music_album|
-      data.push({ id: music_album.id, publish_date: music_album.publish_date, archived: music_album.archived, name: music_album.name,
-                  on_spotify: music_album.on_spotify })
+      data.push({ id: music_album.id, publish_date: music_album.publish_date, archived: music_album.archived,
+                  name: music_album.name, on_spotify: music_album.on_spotify })
     end
     File.write('./json_data/music_albums-data.json', JSON.generate(data))
   end
