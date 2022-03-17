@@ -2,11 +2,13 @@ require './data_storage'
 require './classes/game'
 
 class App
-  attr_accessor :books, :games, :authors, :labels
+  attr_accessor :books, :games, :authors, :labels, :music_albums, :genres
 
   include DataStorage
 
   def initialize
+    @music_albums = read_music_albums
+    @genres = read_genres
     @books = read_books
     @labels = read_labels
     @games = read_games
@@ -28,6 +30,18 @@ class App
     11 - Add a movie
     12 - Add a game
     0 - Exit'
+  end
+
+  def display_music_albums
+    music_albums.each do |music_album|
+      puts "Name: #{music_album.name}, Publish Date: #{music_album.publish_date}, On Spotify: #{music_album.on_spotify}"
+    end
+  end
+
+  def display_genres
+    genres.each do |genre|
+      puts "Name: #{genre.name}"
+    end
   end
 
   def display_books()
@@ -78,18 +92,36 @@ class App
     puts 'Game created successfully.'
   end
 
+  def create_music_album
+    print 'Name: '
+    name = gets.chomp
+    print 'Publish Date: '
+    publish_date = gets.chomp
+    print 'On Spotify? [T or F]: '
+    on_spotify = gets.chomp
+
+    music_albums.push(MusicAlbum.new(publish_date, true, name, on_spotify))
+    puts 'Music album created successfully.'
+  end
+
   def switch_options(option)
     case option
     when 1
       display_books
+    when 2
+      display_music_albums
     when 4
       display_games
+    when 5
+      display_genres
     when 6
       display_labels
     when 7
       display_authors
     when 9
       create_book
+    when 10
+      create_music_album
     when 12
       create_game
     else
@@ -98,6 +130,7 @@ class App
   end
 
   def save_data()
+    save_music_albums(@music_albums)
     save_books(@books)
     save_games(@games)
   end
