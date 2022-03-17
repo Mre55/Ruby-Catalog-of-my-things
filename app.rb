@@ -19,16 +19,13 @@ class App
     puts 'Please choose an option by entering a number:
     1 - List all books
     2 - List all music albums
-    3 - List all movies
-    4 - List of games
-    5 - List all genres
-    6 - List all labels
-    7 - List all authors
-    8 - List all sources
-    9 - Add a book
-    10 - Add a music album
-    11 - Add a movie
-    12 - Add a game
+    3 - List of games
+    4 - List all genres
+    5 - List all labels
+    6 - List all authors
+    7 - Add a book
+    8 - Add a music album
+    9 - Add a game
     0 - Exit'
   end
 
@@ -104,28 +101,31 @@ class App
     puts 'Music album created successfully.'
   end
 
-  def switch_options(option)
+  def switch_options1(option)
     case option
     when 1
       display_books
     when 2
       display_music_albums
-    when 4
+    when 3
       display_games
-    when 5
+    when 4
       display_genres
-    when 6
+    end
+  end
+
+  def switch_options2(option)
+    case option
+    when 5
       display_labels
-    when 7
+    when 6
       display_authors
-    when 9
+    when 7
       create_book
-    when 10
+    when 8
       create_music_album
-    when 12
+    when 9
       create_game
-    else
-      puts 'Not an option'
     end
   end
 
@@ -141,7 +141,8 @@ class App
       option = gets.chomp.to_i
       break if option.zero?
 
-      switch_options(option)
+      switch_options1(option)
+      switch_options2(option)
     end
     save_data
   end
