@@ -39,3 +39,18 @@ CREATE TABLE label (
   title VARCHAR(100) NOT NULL,
   color VARCHAR(100) NOT NULL
 );
+
+CREATE TABLE genre (
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  name VARCHAR(100)
+);
+
+CREATE TABLE music_albums (
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  genre_id FOREIGN KEY(id) REFERENCES genre(id),
+  author_id FOREIGN KEY(id) REFERENCES author(id),
+  label_id FOREIGN KEY(id) REFERENCES label(id),
+  publish_date DATE,
+  archived BOOLEAN,
+  on_spotify BOOLEAN
+);
