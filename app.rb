@@ -1,10 +1,12 @@
 require './data_storage'
+require './banner'
 require './classes/game'
 
 class App
   attr_accessor :books, :games, :authors, :labels, :music_albums, :genres
 
   include DataStorage
+  include BannerTools
 
   def initialize
     @music_albums = read_music_albums
@@ -16,6 +18,13 @@ class App
   end
 
   def display_list
+    print_upper_downframe
+    print_header_part01
+    print_header_part02
+    print_header_part03
+    print_upper_downframe
+    loading_effect
+    clear_screen
     puts 'Please choose an option by entering a number:
     1 - List all books
     2 - List all music albums
@@ -145,5 +154,11 @@ class App
       switch_options2(option)
     end
     save_data
+    exit_greeting_message01
+    exit_greeting_message02
+    exit_greeting_message03
+    exit_greeting_message04
+    countdown(5)
+    clear_screen
   end
 end

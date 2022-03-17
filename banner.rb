@@ -90,16 +90,3 @@ module BannerTools
 end
 
 # This is the example of how to use in the right order this module
-# print_upper_downframe
-# print_header_part01
-# print_header_part02
-# print_header_part03
-# print_upperDownframe
-# loading_effect
-# clear_screen
-# exit_greeting_message01
-# exit_greeting_message02
-# exit_greeting_message03
-# exit_greeting_message04
-# countdown(5)
-# clear_screen
