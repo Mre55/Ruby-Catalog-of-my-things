@@ -24,11 +24,20 @@ To get a local copy up and running follow these simple example steps.
 - Click on the top right green "code" button.
 - On the dropdown menu, choose "download with zip" button.
 - After download, extract the zip file and you have the project on your machine.
-- Run `rubu main.rb` to run the application.
+- Run `bundle init` to create the Gemfile.
+- Run `gem i rspec` to add rspec.
+- Run `gem i rubocop` to add rubocop.
+- Run `gem i os` to add os.
+- Run `ruby main.rb` to run the application.
 
 ## Video Demo
 
 [Link](https://drive.google.com/file/d/1EeipPYYXPgkOnhBcyxl0coZlvj43730h/view?usp=sharing)
+
+
+## Testing
+
+Run `rspec` to check the testing.
 
 ## Authors
 
