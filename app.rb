@@ -18,13 +18,6 @@ class App
   end
 
   def display_list
-    print_upper_downframe
-    print_header_part01
-    print_header_part02
-    print_header_part03
-    print_upper_downframe
-    loading_effect
-    clear_screen
     puts 'Please choose an option by entering a number:
     1 - List all books
     2 - List all music albums
@@ -144,7 +137,27 @@ class App
     save_games(@games)
   end
 
+  def starting_ui
+    print_upper_downframe
+    print_header_part01
+    print_header_part02
+    print_header_part03
+    print_upper_downframe
+    loading_effect
+    clear_screen
+  end
+
+  def ending_ui
+    exit_greeting_message01
+    exit_greeting_message02
+    exit_greeting_message03
+    exit_greeting_message04
+    countdown(5)
+    clear_screen
+  end
+
   def switch_case
+    starting_ui
     loop do
       display_list
       option = gets.chomp.to_i
@@ -154,11 +167,6 @@ class App
       switch_options2(option)
     end
     save_data
-    exit_greeting_message01
-    exit_greeting_message02
-    exit_greeting_message03
-    exit_greeting_message04
-    countdown(5)
-    clear_screen
+    ending_ui
   end
 end
