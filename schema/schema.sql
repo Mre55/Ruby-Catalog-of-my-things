@@ -54,3 +54,13 @@ CREATE TABLE music_albums (
   archived BOOLEAN,
   on_spotify BOOLEAN
 );
+
+CREATE INDEX idx_genre_id ON music_albums(genre_id);
+CREATE INDEX idx_author_id ON music_albums(author_id);
+CREATE INDEX idx_label_id ON music_albums(label_id);
+
+CREATE INDEX idx_genre_id ON books(genre_id);
+CREATE INDEX idx_author_id ON books(author_id);
+CREATE INDEX idx_label_id ON books(label_id);
+
+CREATE INDEX idx_author_id ON item(author_id);
